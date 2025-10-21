@@ -2,7 +2,6 @@
   "name": "@4i4/starter-theme",
   "version": "0.1.0",
   "description": "Base layout theme primitives shared across @4i4 themes.",
-  "private": true,
   "author": {
     "name": "Petyo Stoyanov",
     "email": "petyosv@gmail.com"
