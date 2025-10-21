@@ -1,0 +1,10 @@
+{
+  "name": "Layout",
+  "context": ["layout", "page", "blocks", "components", "icons", "form-field"],
+  "settings": {
+    "palette": "./settings/palette",
+    "breakpoints": "./settings/breakpoints",
+    "buttons": "./settings/buttons",
+    "grid": "./settings/grid"
+  }
+}

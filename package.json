@@ -1,0 +1,52 @@
+{
+  "name": "@4i4/starter-theme",
+  "version": "0.1.0",
+  "description": "Base layout theme primitives shared across @4i4 themes.",
+  "private": true,
+  "author": {
+    "name": "Petyo Stoyanov",
+    "email": "petyosv@gmail.com"
+  },
+  "license": "MIT",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && rollup -c",
+    "clean": "rimraf dist",
+    "start": "rollup -c -w"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "peerDependencies": {
+    "@4i4/registry": "^1.0.0",
+    "@4i4/theme-registry": "^1.1.5",
+    "next": "^13.5.0 || ^14.0.0",
+    "react": "^18.2.0 || ^19.0.0",
+    "styled-components": "^5.3.0 || ^6.0.0"
+  },
+  "devDependencies": {
+    "@4i4/registry": "^1.0.0",
+    "@4i4/theme-registry": "^1.1.5",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.74",
+    "@types/styled-components": "^5.1.34",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^3.29.4",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "styled-components": "^6.1.11",
+    "typescript": "^5.4.2"
+  }
+}
