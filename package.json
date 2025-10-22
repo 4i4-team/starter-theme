@@ -1,6 +1,6 @@
 {
   "name": "@4i4/starter-theme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Base layout theme primitives shared across @4i4 themes.",
   "author": {
     "name": "Petyo Stoyanov",
