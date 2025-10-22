@@ -1,5 +1,4 @@
 {
-  "name": "Layout",
   "context": ["layout", "page", "blocks", "components", "icons", "form-field"],
   "settings": {
     "palette": "./settings/palette",

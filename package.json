@@ -27,14 +27,18 @@
   },
   "peerDependencies": {
     "@4i4/registry": "^1.0.0",
-    "@4i4/theme-registry": "^1.1.5",
+    "@4i4/theme-registry": "^1.1.12",
+    "@4i4/theme-toolkit": "*",
     "next": "^13.5.0 || ^14.0.0",
     "react": "^18.2.0 || ^19.0.0",
-    "styled-components": "^5.3.0 || ^6.0.0"
+    "styled-components": "^5.3.0 || ^6.0.0",
+    "react-hook-form": "^7.50.0"
   },
   "devDependencies": {
     "@4i4/registry": "^1.0.0",
-    "@4i4/theme-registry": "^1.1.5",
+    "@4i4/theme-registry": "^1.1.12",
+    "@4i4/theme-toolkit": "*",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.74",
@@ -46,6 +50,7 @@
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "styled-components": "^6.1.11",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "react-hook-form": "^7.50.0"
   }
 }

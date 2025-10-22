@@ -30,7 +30,10 @@ export default function Header({
   };
 
   const notify = useCallback(
-    ([entry]) => {
+    ([entry]: IntersectionObserverEntry[]) => {
+      if (!entry) {
+        return;
+      }
       if (entry.isIntersecting && onEnter) onEnter();
       else if (!entry.intersectionRatio && onLeave) onLeave();
     },
@@ -39,45 +42,45 @@ export default function Header({
 
   const handleScroll = useCallback(() => {
     const margin = offset ?? 0;
-    const diff = minmax(window.scrollY - (position.current ?? 0), -1, 1);
-    if (diff != direction.current) {
+    const currentScroll = window.scrollY;
+    const previousPosition = position.current ?? currentScroll;
+    const diff = minmax(currentScroll - previousPosition, -1, 1);
+
+    if (diff !== direction.current) {
       direction.current = diff;
-      flipPosition.current = position.current ?? 0;
+      flipPosition.current = previousPosition;
     }
+
+    const boundary = (flipPosition.current ?? previousPosition) + margin * direction.current;
+
     if (
-      (direction.current > 0 &&
-        position.current < flipPosition.current + margin * direction.current &&
-        window.scrollY > flipPosition.current + margin * direction.current) ||
-      (direction.current < 0 &&
-        position.current > flipPosition.current + margin * direction.current &&
-        window.scrollY < flipPosition.current + margin * direction.current)
+      (direction.current > 0 && previousPosition < boundary && currentScroll > boundary) ||
+      (direction.current < 0 && previousPosition > boundary && currentScroll < boundary)
     ) {
-      onDirectionChange && onDirectionChange(direction.current);
+      onDirectionChange?.(direction.current);
     }
-    position.current = window.scrollY;
-  }, [direction]);
+
+    position.current = currentScroll;
+  }, [offset, onDirectionChange]);
 
   useEffect(() => {
-    // @ts-ignore
     const observer = new IntersectionObserver(notify, {
       threshold: threshold ?? 0,
       root: root ?? null,
       rootMargin: rootMargin ?? "0px",
     });
     if (container.current) {
-      const el = container.current as HTMLElement;
-      observer.observe(el);
+      observer.observe(container.current);
       window.addEventListener("scroll", handleScroll);
     }
 
     return () => {
       if (container.current) {
-        const el = container.current as HTMLElement;
-        observer.unobserve(el);
+        observer.unobserve(container.current);
         window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [handleScroll]);
+  }, [handleScroll, notify, root, rootMargin, threshold]);
 
   return <div ref={container}>{children}</div>;
 }

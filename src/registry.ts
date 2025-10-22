@@ -35,30 +35,6 @@ registry.set("card--layout-00", dynamic(() => import("./templates/components/car
 registry.set("card", dynamic(() => import("./templates/components/card"), {}), "components");
 registry.set("box", dynamic(() => import("./templates/components/box"), {}), "components");
 
-// Form-field
-registry.set("wrapper--select", dynamic(() => import("./templates/form-field/wrapper/select"), {}), "form-field");
-registry.set("wrapper", dynamic(() => import("./templates/form-field/wrapper"), {}), "form-field");
-registry.set("wrapper--checkboxes", dynamic(() => import("./templates/form-field/wrapper/checkboxes"), {}), "form-field");
-registry.set("wrapper--checkbox", dynamic(() => import("./templates/form-field/wrapper/checkbox"), {}), "form-field");
-registry.set("textfield", dynamic(() => import("./templates/form-field/textfield"), {}), "form-field");
-registry.set("textarea", dynamic(() => import("./templates/form-field/textarea"), {}), "form-field");
-registry.set("select", dynamic(() => import("./templates/form-field/select"), {}), "form-field");
-registry.set("radios", dynamic(() => import("./templates/form-field/radios"), {}), "form-field");
-registry.set("password", dynamic(() => import("./templates/form-field/password"), {}), "form-field");
-registry.set("number", dynamic(() => import("./templates/form-field/number"), {}), "form-field");
-registry.set("label", dynamic(() => import("./templates/form-field/label"), {}), "form-field");
-registry.set("input-group--tags", dynamic(() => import("./templates/form-field/input-group/tags"), {}), "form-field");
-registry.set("input-group--suffix", dynamic(() => import("./templates/form-field/input-group/suffix"), {}), "form-field");
-registry.set("input-group--prefix", dynamic(() => import("./templates/form-field/input-group/prefix"), {}), "form-field");
-registry.set("input-group--input", dynamic(() => import("./templates/form-field/input-group/input"), {}), "form-field");
-registry.set("input-group", dynamic(() => import("./templates/form-field/input-group"), {}), "form-field");
-registry.set("input-group--expand", dynamic(() => import("./templates/form-field/input-group/expand"), {}), "form-field");
-registry.set("error", dynamic(() => import("./templates/form-field/error"), {}), "form-field");
-registry.set("email", dynamic(() => import("./templates/form-field/email"), {}), "form-field");
-registry.set("description", dynamic(() => import("./templates/form-field/description"), {}), "form-field");
-registry.set("checkboxes", dynamic(() => import("./templates/form-field/checkboxes"), {}), "form-field");
-registry.set("checkbox", dynamic(() => import("./templates/form-field/checkbox"), {}), "form-field");
-
 // Icons
 registry.set("zoomout", dynamic(() => import("./templates/icons/zoomout"), {}), "icons");
 registry.set("zoom", dynamic(() => import("./templates/icons/zoom"), {}), "icons");

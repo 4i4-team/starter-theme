@@ -1,4 +1,4 @@
-export * from "./theme";
+export * from "@4i4/theme-toolkit";
 export { default as registry } from "./registry";
 export { default as themeDefinition } from "./theme.json";
 export { starterSettingsDefaults } from "./settings/defaults";

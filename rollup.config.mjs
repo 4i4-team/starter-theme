@@ -1,4 +1,5 @@
-import { terser } from '@rollup/plugin-terser';
+import json from '@rollup/plugin-json';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import external from 'rollup-plugin-peer-deps-external';
@@ -26,6 +27,7 @@ const bundleConfig = {
   ],
   plugins: [
     external(),
+    json({ preferConst: true }),
     typescript({ tsconfig: './tsconfig.json' }),
     terser()
   ]
@@ -34,6 +36,7 @@ const bundleConfig = {
 const typesConfig = {
   input,
   output: [{ file: 'dist/index.d.ts', format: 'es' }],
+  external: [/\.json$/],
   plugins: [dts()]
 };
 

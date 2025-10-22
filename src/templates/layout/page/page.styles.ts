@@ -1,4 +1,20 @@
-import { createGlobalStyle, css } from "styled-components";
+import {
+  createGlobalStyle,
+  css,
+  type DefaultTheme,
+  type RuleSet,
+} from "styled-components";
+
+type ThemeExecutionContext = { theme: DefaultTheme };
+
+const containerRules = ({ theme }: ThemeExecutionContext): RuleSet<any> => {
+  // cast: toolkit annotates with ThemeWithMedia which styled-components rejects here
+  return theme.container as unknown as RuleSet<any>;
+};
+
+const paletteRules = ({ theme }: ThemeExecutionContext): RuleSet<any> => {
+  return theme.palettes as unknown as RuleSet<any>;
+};
 
 const textAlign = css`
   .text-align-left,
@@ -66,8 +82,8 @@ export const GlobalStyle = createGlobalStyle`
     --box-background: #efefef;
     --border-radius: 12px;
     --border-color: #ccc;
-      ${({ theme }) => theme.container};
-      ${({ theme }) => theme.palettes};
+      ${containerRules};
+      ${paletteRules};
   }
   a {
     color: inherit;

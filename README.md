@@ -41,6 +41,8 @@ const theme = {
 };
 ```
 
+The starter theme now sources these layout helpers from `@4i4/theme-toolkit`, so you can import them directly from that package if you already depend on it elsewhere.
+
 Any palette entry can omit the darker or lighter shades and they will be derived from the `main` color automatically. New palette keys become available through CSS variables like `var(--color-accent)` and by listing them in `buildButtons`.
 
 ## Theme Settings via `_settings`

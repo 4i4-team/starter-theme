@@ -7,30 +7,31 @@ import {
   buildPalettes,
   container,
   media,
-} from "../../../theme";
-import {
-  starterSettingsDefaults,
-  type StarterSettings,
-} from "../../../settings/defaults";
+} from "@4i4/theme-toolkit";
+import type { StarterSettings } from "../../../settings/types";
+import paletteDefaults from "../../../settings/palette";
+import breakpointsDefaults from "../../../settings/breakpoints";
+import buttonsDefaults from "../../../settings/buttons";
+import gridDefaults from "../../../settings/grid";
 import { GlobalStyle } from "./page.styles";
 
-export const breakpoints = starterSettingsDefaults.breakpoints;
+export const breakpoints = breakpointsDefaults;
 
 type BreakpointKey = keyof StarterSettings["breakpoints"];
 
 export default function Page({ children }: { children: ReactNode }) {
   const palette =
-    useThemeSettings<StarterSettings>("palette", starterSettingsDefaults) ??
-    starterSettingsDefaults.palette;
+    useThemeSettings<StarterSettings, "palette">("palette") ??
+    paletteDefaults;
   const breakpointMap =
-    useThemeSettings<StarterSettings>("breakpoints", starterSettingsDefaults) ??
-    starterSettingsDefaults.breakpoints;
+    useThemeSettings<StarterSettings, "breakpoints">("breakpoints") ??
+    breakpointsDefaults;
   const buttonOrder =
-    useThemeSettings<StarterSettings>("buttons", starterSettingsDefaults) ??
-    starterSettingsDefaults.buttons;
+    useThemeSettings<StarterSettings, "buttons">("buttons") ??
+    buttonsDefaults;
   const grid =
-    useThemeSettings<StarterSettings>("grid", starterSettingsDefaults) ??
-    starterSettingsDefaults.grid;
+    useThemeSettings<StarterSettings, "grid">("grid") ??
+    gridDefaults;
 
   const theme: DefaultTheme = {
     palettes: buildPalettes(palette),
