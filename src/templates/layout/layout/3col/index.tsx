@@ -9,6 +9,7 @@ export default function Layout({
   condensed = false,
   extendedBackground = false,
   split = "33/33/33",
+  ...props
 }: {
   width?: "normal" | "wide" | "narrow";
   fullWidth: boolean;
@@ -88,7 +89,7 @@ export default function Layout({
   }
 
   return (
-    <Template template={template} context="layout" className="no-gutter">
+    <Template template={template} context="layout" className="no-gutter" {...props}>
       <Template template="row" context="layout" className="no-gap">
         <Template
           template="layout--region"
